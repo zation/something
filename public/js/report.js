@@ -1,50 +1,55 @@
 $(function() {
-	$('table tr td:nth-child(7), table tr td:nth-child(8), table tr td:nth-child(9)').each(function() {
-		$(this).hide();
-	});
+  var $extendedColumns = $('table tr td:nth-child(7), table tr td:nth-child(8), table tr td:nth-child(9)');
 
-	$('#submit').on('click', function() {
-		var highLightClassName = 'text-danger';
+  $extendedColumns.each(function() {
+    $(this).hide();
+  });
 
-		$('table tbody td').removeClass(highLightClassName);
-		$('table tbody td').removeClass('text-warning');
-		$('table tbody td').removeClass('text-muted');
-		$('table tbody td:nth-child(3)').each(function() {
-			var begin_age = parseInt($('.from.age').val()) || 0;
-			var end_age = parseInt($('.to.age').val()) || 100;
-			if (begin_age < parseInt(this.innerHTML) && parseInt(this.innerHTML) < end_age) {
-				$(this).addClass(highLightClassName);
-			}
-		});
+  $('#submit').on('click', function() {
+    var highLightClassName = 'text-danger';
+    var begin_age = parseInt($('.from.age').val()) || 0;
+    var end_age = parseInt($('.to.age').val()) || 100;
 
-		$('table tbody td:nth-child(7)').each(function() {
-			if (this.innerHTML == $('#income').val()) {
-				$(this).addClass(highLightClassName);
-			}
-		});
+    $('table tbody tr').each(function() {
+      var value = 0;
+      var $this = $(this);
+      var $age = $this.children('td:nth-child(3)');
+      var $income = $this.children('td:nth-child(7)');
+      var $risk = $this.children('td:nth-child(8)');
+      var $value = $this.children('td:nth-child(9)');
+      $this.removeClass('danger, warning');
 
-		$('table tbody td:nth-child(8)').each(function() {
-			if (this.innerHTML == $('#risk').val()) {
-				$(this).addClass(highLightClassName);
-			}
-		});
+      var age = parseInt($age.html());
+      if (begin_age < age && age < end_age) {
+        $age.addClass(highLightClassName);
+        value++;
+      }
 
-		$('table tbody td:nth-child(9)').each(function() {
-			var highLightCount = $(this).parent().find('.' + highLightClassName).length;
-			if (highLightCount > 2) {
-				$(this).html('hot');
-				$(this).addClass(highLightClassName);
-			} else if (highLightCount > 0) {
-				$(this).html('warm');
-				$(this).addClass('text-warning');
-			} else {
-				$(this).html('cold');
-				$(this).addClass('text-muted');
-			}
-		});
+      var income = $income.html();
+      if($('#income').val() == income) {
+        $income.addClass(highLightClassName);
+        value++;
+      }
 
-		$('table tr td:nth-child(7), table tr td:nth-child(8), table tr td:nth-child(9)').each(function() {
-			$(this).show();
-		});
-	});
+      var risk = $risk.html();
+      if($('#risk').val() == risk) {
+        $risk.addClass(highLightClassName);
+        value++;
+      }
+
+      if (value > 2) {
+        $value.html('hot');
+        $this.addClass('danger');
+      } else if (value > 0) {
+        $value.html('warm');
+        $this.addClass('warning');
+      } else {
+        $value.html('cold');
+      }
+    });
+
+    $extendedColumns.each(function() {
+      $(this).show();
+    });
+  });
 });
