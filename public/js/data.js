@@ -7,7 +7,7 @@ $(function() {
         var source = $('#data').html();
         var template = Handlebars.compile(source);
         var html = template(data);
-        $('.container').html(html);
+        $('.data tbody').html(html);
       }
     });
   }, 1000);
