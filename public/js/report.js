@@ -2,7 +2,7 @@ $(function(){
 	$('table tr td:nth-child(7)').each(function(){$(this).css('display','none')});
 	$('table tr td:nth-child(8)').each(function(){$(this).css('display','none')});
 	$('table tr td:nth-child(9)').each(function(){$(this).css('display','none')});
-	$('.submit').click(function(){
+	$('#submit').click(function(){
 		$('table tbody td:nth-child(3)').each(function(){
 				$(this).css("color","black");
 				var begin_age = parseInt($('.from.age').val())||0;
