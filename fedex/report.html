@@ -7,7 +7,17 @@
 	<script src="js/report.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
-
+<style>
+	.form-control{
+		width: 20%;
+	}
+	form{
+		padding: 13px;
+		margin: 25px auto;
+		border: 1px dotted;
+		border-radius: 10px;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -149,13 +159,15 @@
 	</table>
 
 		<h1>Demographic</h1>
-		<form role="form">
+		<form class='form-inline' role="form">
 			<div class="form-group age-rule">
 			<label for="fromage">Age from</label>
-			<input type="text" id="fromage" class="from age">
+			<input type="text" id="fromage"  class="from age form-control">
 			<label for="toage">to</label>
-			<input type="text" id="toage" class="to age">
-		</div>
+			<input type="text" id="toage" class="to age form-control">
+			</div>
+		</form>
+		<form role="form">
 		<div class="income-rule form-group">
 			<label>Income (annual)</label>
 			<select name="Income per year" class="form-control" id="income" style="width:20%">
