@@ -1,5 +1,5 @@
 $(function() {
-  var $extendedColumns = $('table tr td:nth-child(7), table tr td:nth-child(8), table tr td:nth-child(9)');
+  var $extendedColumns = $('table tr td:nth-child(7), table tr td:nth-child(8), table tr td:nth-child(9), table tr th:nth-child(7), table tr th:nth-child(8), table tr th:nth-child(9)');
 
   $extendedColumns.each(function() {
     $(this).hide();

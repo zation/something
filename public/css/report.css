@@ -1,0 +1,15 @@
+.form-control {
+  width: 30%;
+}
+
+form {
+  padding: 13px;
+  margin: 25px auto;
+  border: 1px dotted;
+  border-radius: 10px;
+}
+
+button {
+  display: block;
+  clear: both;
+}
