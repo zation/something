@@ -147,34 +147,35 @@
 		</tr>
 		</tbody>
 	</table>
-	<div>
-		<h2>Demographic</h2>
-		<div class="age-rule">
-			<p>Age from:</p>
-			<input type="text" class="from age">
-			<p>to</p>
-			<input type="text" class="to age">
+
+		<h1>Demographic</h1>
+		<form role="form">
+			<div class="form-group age-rule">
+			<label for="fromage">Age from</label>
+			<input type="text" id="fromage" class="from age">
+			<label for="toage">to</label>
+			<input type="text" id="toage" class="to age">
 		</div>
-		<div class="income-rule">
+		<div class="income-rule form-group">
 			<p>Income (annual)</p>
-			<select name="Income per year" id="income">
+			<select name="Income per year" class="form-control" id="income" style="width:20%">
 			<option value="Low">&lt;40k</option>
 			<option value="Middle">40k - 80k</option>
 			<option value="High">&gt;80k</option>
 		</select>
 		</div>
-		<div class="risk-rule">
+		<div class="risk-rule form-group">
 			<p>Risk</p>
-			<select name="Risk" id="risk">
+			<select name="Risk" id="risk" class="form-control" style="width:20%">
 			<option value="Low">Low</option>
 			<option value="Middle">Middle</option>
 			<option value="High">High</option>
 		</select>
 		</div>
-	<button class="submit">
-	submit	
+</form>
+	<button id="submit">
+			submit	
 	</button>
-	</div>
 </div>
 </body>
 </html>
